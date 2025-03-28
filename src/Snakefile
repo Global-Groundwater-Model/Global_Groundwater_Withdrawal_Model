@@ -9,7 +9,7 @@ import numpy as np
 import pandas as pd
 import os
 
-Input_file_dir = '/home/sara.nazari/labspaces/global-coastal-groundwater/code/Water_Use/Publish/src' #input('Please enter the directory path where you saved the GGW model')
+Input_file_dir = '../src' #input('Please enter the directory path where you saved the GGW model')
 df_info = pd.read_csv(os.path.abspath(Input_file_dir)+'/Input_Info.csv')
 
 Year = range(int(df_info.loc[2, 'Input']), int(df_info.loc[3, 'Input'])+1)   
