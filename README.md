@@ -7,9 +7,9 @@ Global Groundwater Withdrawal Model
 
 The newly developed Global Groundwater Withdrawal (GGW) model is a data-driven framework developed to estimate annual groundwater withdrawal (GWW) across three main sectors: domestic, industrial, and agricultural. Implemented in Python, the model operates at a spatial resolution of 0.1° and is used here to estimate annual withdrawal from 2001 to 2020 (refer to Fig. 1).
 
-The default spatial and temporal setup of the model is as follows: spatial resolution of 0.1°×0.1° and annual temporal resolution. The model encompasses a spatial extent ranging from 180.0°W to 180.0°E longitudes and 60.0°N to 60.0°S latitudes, with a temporal range spanning from January 2001 to December 2020.
+The default spatial and temporal setup of the model is as follows: spatial resolution of 0.1°×0.1° and annual temporal resolution. The model encompasses a spatial extent ranging from 180.0°W to 180.0°E longitudes and 90.0°N to 90.0°S latitudes, with a temporal range spanning from 2001 to 2020.
 
-![Figure 1](figures/Figure1.tiff)
+![Figure 1](figures/Figure1.png)
 
 Fig. 1. The newly developed Global Groundwater Withdrawal (GGW) model is a data-driven framework developed to estimate annual groundwater withdrawal (GWW) across three main sectors: domestic, industrial, and agricultural. Implemented in Python, the model operates at a spatial resolution of 0.1° and is used here to estimate annual withdrawal from 2001 to 2020.
 
@@ -44,7 +44,7 @@ Nazari, S., Reinecke, R., Moosdorf, N., 2025. Global estimates of groundwater wi
 ## References to Input Data
 - [FAO., 2023. AQUASTAT Core Database. Food and Agriculture Organization of the United Nations.](https://www.fao.org/aquastat/en/databases/maindatabase)
 - [IGRAC, 2024. Global Groundwater Information System (GGIS). International Groundwater Resources Assessment Centre (IGRAC), Delft, the Netherlands.](https://un-igrac.org/data/dataset/)
-- [Eurostat, 2024. Annual freshwater abstraction by source and sector. In: Eurostat (Ed.). DOI:10.2908/ENV_WAT_ABS.] (https://ec.europa.eu/eurostat/databrowser/view/ENV_WAT_ABS/default/table?lang=en)
+- [Eurostat, 2024. Annual freshwater abstraction by source and sector. In: Eurostat (Ed.). DOI:10.2908/ENV_WAT_ABS.](https://ec.europa.eu/eurostat/databrowser/view/ENV_WAT_ABS/default/table?lang=en)
 - [CIESIN, 2018. Gridded Population of the World, Version 4 (GPWv4): Population Density, Revision 11. Center for International Earth Science Information Network - CIESIN - Columbia University, NASA Socioeconomic Data and Applications Center (SEDAC), Palisades, New York. DOI:10.7927/H49C6VHW.](https://www.earthdata.nasa.gov/data/catalog/sedac-ciesin-sedac-gpwv4-popdens-r11-4.11)
 - [R. Reinecke, S. Gnann, L. Stein, M. F. Bierkens, I. E. de Graaf, T. Gleeson, et al., 2024. Uncertainty in model estimates of global groundwater depth. Environmental Research Letters. DOI:10.1088/1748-9326/ad8587.](https://iopscience.iop.org/article/10.1088/1748-9326/ad8587)
 - [JRC, 2021. Global Human Settlement Layer: Population and Built-Up Estimates, and Degree of Urbanization Settlement Model Grid. Joint Research Centre—JRC—European Commission, NASA Socioeconomic Data and Applications Center (SEDAC), Palisades, NY, USA. DOI:10.7927/h4154f0w.](https://www.earthdata.nasa.gov/data/catalog/sedac-ciesin-sedac-ghsl-pbsmod-1.00)
