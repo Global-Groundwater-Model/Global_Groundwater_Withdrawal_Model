@@ -27,7 +27,7 @@ Fig. 1. The newly developed Global Groundwater Withdrawal (GGW) model is a data-
 
 ## Getting Started
 To run the Global Groundwater Withdrawal (GGW) model, ensure you have prepared the Input_Info.csv file. This file contains the necessary input data sources. All the information about the sources of this inputs or the availability of these inputs in the data folder are mentioned in Input_Info.csv.
-To execute the GGW model, you'll need to utilize the Snakemake library in Python.Please consider updating the first line of the Snakefile based on the directory pathwhere you saved GGW model (/src).  The model workflow is orchestrated by the Snakefile, which automates the execution of various tasks.
+To execute the GGW model, you'll need to utilize the Snakemake library in Python. Please consider updating the first line of the Snakefile based on the directory path where you saved GGW model (/src).  The model workflow is orchestrated by the Snakefile, which automates the execution of various tasks.
 
 
 Additionally, you can visualize the workflow of the GGW model by examining the Snakemake rule graph, as illustrated in Figure. 2. This graph provides insights into the sequence of code execution within the GGW Model.
