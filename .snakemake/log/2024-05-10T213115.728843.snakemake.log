@@ -1,0 +1,42 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                                 count    min threads    max threads
+--------------------------------  -------  -------------  -------------
+An_Grid_Pop                             1              1              1
+An_countries_population                 1              1              1
+Countries_Dom_GWW                       1              1              1
+Countries_TGWW_data                     1              1              1
+Fill_no_data_Person_Dom_GWW             1              1              1
+Fill_no_data_frac_dom                   1              1              1
+Grid_Person_Dom_GWW                     1              1              1
+Merge_Dom_GWW_Eu_World                  1              1              1
+Person_Dom_GWW                          1              1              1
+Pop_GWDepth_100m                        1              1              1
+Pop_and_GWDepth_Res_Modification        1              1              1
+Total_Dom_GWW                           1              1              1
+all                                     1              1              1
+total                                  13              1              1
+
+Select jobs to execute...
+
+[Fri May 10 21:31:17 2024]
+Job 12: now generating /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Publish_Test/Population/Netcdf/Annual_Grid_Population_2001_2020.nc file from rule An_Grid_Pop
+Reason: Missing output files: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Publish_Test/Population/Netcdf/Annual_Grid_Population_2001_2020.nc
+
+[Fri May 10 21:31:17 2024]
+Error in rule An_Grid_Pop:
+    jobid: 12
+    output: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Publish_Test/Population/Netcdf/Annual_Grid_Population_2001_2020.nc
+
+RuleException:
+WorkflowErrorin line 106 of /labspaces/global-coastal-groundwater/users/sara.nazari/code/Water_Use/Publish/Snakefile:
+Failed to open source file /home/sara.nazari/labspaces/global-coastal-groundwater/code/Water_Use/PublishAn_Grid_Pop.py
+FileNotFoundError: [Errno 2] No such file or directory: '/home/sara.nazari/labspaces/global-coastal-groundwater/code/Water_Use/PublishAn_Grid_Pop.py'
+  File "/labspaces/global-coastal-groundwater/users/sara.nazari/code/Water_Use/Publish/Snakefile", line 106, in __rule_An_Grid_Pop
+  File "/home/sara.nazari/labspaces/global-coastal-groundwater/software/FCGW/lib/python3.7/concurrent/futures/thread.py", line 57, in run
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-05-10T213115.728843.snakemake.log

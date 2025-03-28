@@ -1,0 +1,6 @@
+Building DAG of jobs...
+MissingInputException in rule Sum_Irr_Area in line 367 of /labspaces/global-coastal-groundwater/users/sara.nazari/code/Water_Use/Publish/Snakefile:
+Missing input files for rule Sum_Irr_Area:
+    output: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Publish_Test/Irrigation/shp/Countries_Irr_GWW_2001_2020_noData_IrrFrac_IrrArea.shp
+    affected files:
+        /home/sara.nazari/labspaces/global-coastal-groundwater/data/inbox/irrigated_Area/Siebert_2013/GMIA_v5_aeigw_toAll_01degree.tif'

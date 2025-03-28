@@ -1,0 +1,473 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Mon May  8 13:22:30 2023
+
+@author: sara.nazari
+"""
+import numpy as np
+import pandas as pd
+import os
+
+Input_file_dir = '/home/sara.nazari/labspaces/global-coastal-groundwater/code/Water_Use/Publish/src' #input('Please enter the directory path where you saved the GGW model')
+df_info = pd.read_csv(os.path.abspath(Input_file_dir)+'/Input_Info.csv')
+
+Year = range(int(df_info.loc[2, 'Input']), int(df_info.loc[3, 'Input'])+1)   
+start_year = int(df_info.loc[2, 'Input'])
+end_year = int(df_info.loc[3, 'Input'])
+
+if not os.path.exists(os.path.abspath(df_info.loc[1,'Input'])+'/Population/shp'):
+    os.makedirs((os.path.abspath(df_info.loc[1,'Input'])+'/Population/shp'))
+    
+if not os.path.exists(os.path.abspath(df_info.loc[1,'Input'])+'/Population/Netcdf'):
+    os.makedirs((os.path.abspath(df_info.loc[1,'Input'])+'/Population/Netcdf'))
+    
+if not os.path.exists(os.path.abspath(df_info.loc[1,'Input'])+'/Urban_Mining/Netcdf'):
+    os.makedirs((os.path.abspath(df_info.loc[1,'Input'])+'/Urban_Mining/Netcdf'))  
+    
+if not os.path.exists(os.path.abspath(df_info.loc[1,'Input'])+'/GWDepth/Netcdf'):
+    os.makedirs((os.path.abspath(df_info.loc[1,'Input'])+'/GWDepth/Netcdf'))
+
+if not os.path.exists(os.path.abspath(df_info.loc[1,'Input'])+'/Total/shp'):
+    os.makedirs((os.path.abspath(df_info.loc[1,'Input'])+'/Total/shp'))
+    
+if not os.path.exists(os.path.abspath(df_info.loc[1,'Input'])+'/Total/Netcdf'):
+    os.makedirs((os.path.abspath(df_info.loc[1,'Input'])+'/Total/Netcdf'))
+    
+if not os.path.exists(os.path.abspath(df_info.loc[1,'Input'])+'/Domestic/shp'):
+    os.makedirs((os.path.abspath(df_info.loc[1,'Input'])+'/Domestic/shp'))
+    
+if not os.path.exists(os.path.abspath(df_info.loc[1,'Input'])+'/Domestic/Netcdf'):
+    os.makedirs((os.path.abspath(df_info.loc[1,'Input'])+'/Domestic/Netcdf'))
+    
+if not os.path.exists(os.path.abspath(df_info.loc[1,'Input'])+'/Industrial/shp'):
+    os.makedirs((os.path.abspath(df_info.loc[1,'Input'])+'/Industrial/shp'))
+    
+if not os.path.exists(os.path.abspath(df_info.loc[1,'Input'])+'/Industrial/Netcdf'):
+    os.makedirs((os.path.abspath(df_info.loc[1,'Input'])+'/Industrial/Netcdf'))
+
+if not os.path.exists(os.path.abspath(df_info.loc[1,'Input'])+'/Irrigation/shp'):
+    os.makedirs((os.path.abspath(df_info.loc[1,'Input'])+'/Irrigation/shp'))
+    
+if not os.path.exists(os.path.abspath(df_info.loc[1,'Input'])+'/Irrigation/Netcdf'):
+    os.makedirs((os.path.abspath(df_info.loc[1,'Input'])+'/Irrigation/Netcdf'))
+    
+
+   
+rule GG_W:
+    input:
+        fn_An_Grid_Total_GWW = os.path.abspath(df_info.loc[1, 'Input']+f'/Total/Netcdf/Annual_Total_GWW_{start_year}_{end_year}.nc')
+        
+rule Countries_TGWW_data:
+    params:
+        start_year = int(df_info.loc[2, 'Input']),
+        end_year = int(df_info.loc[3, 'Input'])
+    input:
+        fn_countries = os.path.abspath(df_info.loc[4,'Input']),
+        fn_TGWW = os.path.abspath(df_info.loc[5,'Input'])
+
+    output:
+        fn_TGWW_country = os.path.abspath(df_info.loc[1,'Input']+f'/Total/shp/Countries_Total_GWW_AQUASTAT_{start_year}_{end_year}.shp')
+    message: 
+        "now generating {output} file from rule Countries_TGWW_data"
+    
+    script:
+        os.path.abspath(df_info.loc[0,'Input'])+'/An_Countries_TGWW.py'               
+
+rule Countries_Dom_GWW:
+    params:
+        start_year = int(df_info.loc[2, 'Input']),
+        end_year = int(df_info.loc[3, 'Input'])
+    input:
+        fn_TGWW_country = os.path.abspath(df_info.loc[1,'Input']+f'/Total/shp/Countries_Total_GWW_AQUASTAT_{start_year}_{end_year}.shp'),
+        fn_GWW_Frac = os.path.abspath(df_info.loc[6,'Input'])
+    output:
+        fn_Dom_GWW_country = os.path.abspath(df_info.loc[1, 'Input']+f'/Domestic/shp/Countries_Domstic_GWW_{start_year}_{end_year}.shp')
+    
+    message: 
+        "now generating {output} file from rule Countries_Dom_GWW"
+    
+    script:
+       os.path.abspath(df_info.loc[0,'Input'])+'/An_Countries_Dom_GWW.py'        
+              
+rule Merge_Dom_GWW_Eu_World:
+    params:
+        start_year = int(df_info.loc[2, 'Input']),
+        end_year = int(df_info.loc[3, 'Input'])
+    input:
+        fn_Dom_GWW_EU = os.path.abspath(df_info.loc[7,'Input']),
+        fn_Dom_GWW_country = os.path.abspath(df_info.loc[1, 'Input']+f'/Domestic/shp/Countries_Domstic_GWW_{start_year}_{end_year}.shp')
+    output:
+        fn_Dom_GWW_Eu_World = os.path.abspath(df_info.loc[1, 'Input']+f'/Domestic/shp/Countries_Domstic_GWW_{start_year}_{end_year}_Eu_World.shp')
+    message:
+        "now generating {output} file from rule Merge_Dom_GWW_Eu_World"
+    script:
+        os.path.abspath(df_info.loc[0,'Input'])+'/An_merg_Eu_Dom_GWW.py'
+        
+rule Fill_no_data_frac_dom:
+    params:
+        start_year = int(df_info.loc[2, 'Input']),
+        end_year = int(df_info.loc[3, 'Input'])
+    input:
+        fn_Dom_GWW_Eu_World = os.path.abspath(df_info.loc[1, 'Input']+f'/Domestic/shp/Countries_Domstic_GWW_{start_year}_{end_year}_Eu_World.shp')
+    output:
+        fn_Dom_GWW_country_Fillno_DomFrac = os.path.abspath(df_info.loc[1, 'Input']+f'/Domestic/shp/Countries_Domstic_GWW_{start_year}_{end_year}_noData_DomFrac.shp')
+    message:
+        "now generating {output} file from rule Fill_no_data_frac_dom"
+    script:
+        os.path.abspath(df_info.loc[0,'Input'])+'/An_Countries_Dom_GWW_Fillno_DomFrac.py'        
+        
+rule An_Grid_Pop:
+    input:
+        fn_Grid_Pop_5year = os.path.abspath(df_info.loc[8, 'Input'])
+    output:
+        fn_an_Grid_Pop = os.path.abspath(df_info.loc[1, 'Input']+f'/Population/Netcdf/Annual_Grid_Population_2001_2020.nc')
+        
+    message:
+        "now generating {output} file from rule An_Grid_Pop"  
+    script:
+        os.path.abspath(df_info.loc[0,'Input'])+'/An_Grid_Pop.py'
+     
+rule Pop_and_GWDepth_Res_Modification:
+    input:
+        fn_an_Grid_Pop = os.path.abspath(df_info.loc[1, 'Input']+f'/Population/Netcdf/Annual_Grid_Population_2001_2020.nc'),
+        fn_GW_depth = os.path.abspath(df_info.loc[9, 'Input']),
+        fn_countries = os.path.abspath(df_info.loc[4,'Input']),
+        fn_Refrence = os.path.abspath(df_info.loc[10, 'Input'])
+    output:
+        fn_an_Grid_Pop_01degree = os.path.abspath(df_info.loc[1, 'Input']+f'/Population/Netcdf/Annual_Grid_Population_2001_2020_01Degree_Sum.nc'),
+        fn_GWDepth_01Degree = os.path.abspath(df_info.loc[1, 'Input']+f'/GWDepth/Netcdf/GW_Level_Depth_01.nc')
+    message:
+        "now generating {output} file from rule Pop_and_GWDepth_Res_Modification"  
+    script:
+        os.path.abspath(df_info.loc[0,'Input'])+'/An_Grid_Pop_and_GWDepth_01Degree.py'
+
+rule Pop_GWDepth_100m:
+    input:
+       fn_an_Grid_Pop_01degree = os.path.abspath(df_info.loc[1, 'Input']+f'/Population/Netcdf/Annual_Grid_Population_2001_2020_01Degree_Sum.nc'),
+       fn_GWDepth_01Degree = os.path.abspath(df_info.loc[1, 'Input']+f'/GWDepth/Netcdf/GW_Level_Depth_01.nc')
+    output:
+        fn_an_Grid_Pop_GWDepth_100m = os.path.abspath(df_info.loc[1, 'Input']+f'/Population/Netcdf/Annual_Grid_Population_2001_2020_GWdepth.nc'),
+        fn_GW_depth_100m = os.path.abspath(df_info.loc[1, 'Input']+f'/GWDepth/Netcdf/GWDepth_less_100m.nc')
+    message:
+        "now generating {output} file from rule Pop_GWDepth_100m"  
+    script:
+        os.path.abspath(df_info.loc[0,'Input'])+'/An_Pop_GWDepth_100m.py'                                          
+
+rule An_countries_population:
+    input: 
+        fn_countries = os.path.abspath(df_info.loc[4,'Input']),
+        fn_an_Grid_Pop_GWDepth_100m = os.path.abspath(df_info.loc[1, 'Input']+f'/Population/Netcdf/Annual_Grid_Population_2001_2020_GWdepth.nc')
+    output:
+        fn_Countries_Pop_GWdepth_100m = os.path.abspath(df_info.loc[1, 'Input']+f'/Population/shp/Annual_Countires_Population_2001_2020_GWdepth.shp')
+    message:
+        "now generating {output} file from rule An_countries_population"    
+    script:
+        os.path.abspath(df_info.loc[0,'Input'])+'/An_Countries_Pop.py'
+        
+rule Person_Dom_GWW:
+    params:
+        start_year = int(df_info.loc[2, 'Input']),
+        end_year = int(df_info.loc[3, 'Input'])    
+    input:
+        fn_Dom_GWW_country_Fillno_DomFrac = os.path.abspath(df_info.loc[1, 'Input']+f'/Domestic/shp/Countries_Domstic_GWW_{start_year}_{end_year}_noData_DomFrac.shp'),
+        fn_Countries_Pop_GWdepth_100m = os.path.abspath(df_info.loc[1, 'Input']+f'/Population/shp/Annual_Countires_Population_2001_2020_GWdepth.shp')
+    output:
+        fn_countries_Person_Dom_GWW_GWDepth =os.path.abspath(df_info.loc[1,'Input']+f'/Domestic/shp/Countries_Domstic_GWW_{start_year}_{end_year}_PerPerson.shp')
+    message:
+        "now generating {output} file from rule Person_Dom_GWW"    
+    script:
+        os.path.abspath(df_info.loc[0,'Input'])+'/An_Countries_Person_Dom_GWW.py'
+    
+rule Fill_no_data_Person_Dom_GWW:
+    params:
+        start_year = int(df_info.loc[2, 'Input']),
+        end_year = int(df_info.loc[3, 'Input'])   
+    input:
+        fn_countries_Person_Dom_GWW_GWDepth = os.path.abspath(df_info.loc[1,'Input']+f'/Domestic/shp/Countries_Domstic_GWW_{start_year}_{end_year}_PerPerson.shp')
+    output:
+        fn_assigned_countries_Person_Dom_GWW_GWDepth = os.path.abspath(df_info.loc[1,'Input']+f'/Domestic/shp/Countries_Domstic_GWW_{start_year}_{end_year}_PerPerson_Assigned_noData.shp')
+    message:
+        "now generating {output} file from rule Fill_no_data_Person_Dom_GWW"    
+    script:
+        os.path.abspath(df_info.loc[0,'Input'])+'/An_Person_Dom_GWW_Fillno.py'
+        
+rule Grid_Person_Dom_GWW:
+    params:
+        start_year = int(df_info.loc[2, 'Input']),
+        end_year = int(df_info.loc[3, 'Input']) 
+    input:
+        fn_assigned_countries_Person_Dom_GWW_GWDepth = os.path.abspath(df_info.loc[1,'Input']+f'/Domestic/shp/Countries_Domstic_GWW_{start_year}_{end_year}_PerPerson_Assigned_noData.shp'),
+        fn_an_Grid_Pop_GWDepth_100m = os.path.abspath(df_info.loc[1, 'Input']+f'/Population/Netcdf/Annual_Grid_Population_2001_2020_GWdepth.nc')
+    output:
+        fn_Grid_Person_Dom_GWW_GWdepth = os.path.abspath(df_info.loc[1, 'Input']+f'/Domestic/Netcdf/Annual_D_GWW_Per_Person_GWdepth_{start_year}_{end_year}.nc')
+    message:
+        "now generating {output} file from rule Grid_Person_Dom_GWW"    
+    script:
+        os.path.abspath(df_info.loc[0,'Input'])+'/An_Grid_Person_Dom_GWW.py'
+        
+
+rule Total_Dom_GWW:
+    params:
+        start_year = int(df_info.loc[2, 'Input']),
+        end_year = int(df_info.loc[3, 'Input']) 
+    input:
+        fn_Grid_Person_Dom_GWW_GWdepth = os.path.abspath(df_info.loc[1, 'Input']+f'/Domestic/Netcdf/Annual_D_GWW_Per_Person_GWdepth_{start_year}_{end_year}.nc'),
+        fn_an_Grid_Pop_GWDepth_100m = os.path.abspath(df_info.loc[1, 'Input']+f'/Population/Netcdf/Annual_Grid_Population_2001_2020_GWdepth.nc')
+    output:
+        fn_Grid_Total_Dom_GWW_GWdepth = os.path.abspath(df_info.loc[1, 'Input']+f'/Domestic/Netcdf/Annual_Total_D_GWW_GWdepth_{start_year}_{end_year}.nc')
+    message:
+        "now generating {output} file from rule Total_Dom_GWW"    
+    script:
+        os.path.abspath(df_info.loc[0,'Input'])+'/An_Grid_Total_Dom_GWW.py'                                                      
+
+rule Merge_Urban_Centre_Mining_Location:
+    input:
+        fn_Urban = os.path.abspath(df_info.loc[11,'Input']),
+        fn_Mining = os.path.abspath(df_info.loc[12,'Input'])
+    output:
+        fn_Urban_Mining = os.path.abspath(df_info.loc[1,'Input'])+'/Urban_Mining/Netcdf/global_miningarea_v1_plus_urban_01degree.nc'
+    message: 
+        "now generating {output} file from rule Merge_Urban_Centre_Mining_Location"
+    script:
+        os.path.abspath(df_info.loc[0,'Input'])+'/Merge_Mining_Urban.py'    
+
+rule Urban_Centre_Mining_Location_GWDepth_100m:
+    input:
+        fn_Urban_Mining = os.path.abspath(df_info.loc[1,'Input'])+'/Urban_Mining/Netcdf/global_miningarea_v1_plus_urban_01degree.nc',
+        fn_GW_depth = os.path.abspath(df_info.loc[9, 'Input'])
+    output:
+        fn_Urban_Mining_GWDepth_100m = os.path.abspath(df_info.loc[1,'Input'])+'/Urban_Mining/Netcdf/GW_depth_less_100m_Urban_mining_grids.nc'
+    message: 
+        "now generating {output} file from rule Urban_Centre_Mining_Location_GWDepth_100m"
+    script:
+        os.path.abspath(df_info.loc[0,'Input'])+'/Mining_Urban_GWDepth.py'  
+
+rule Countries_Ind_GWW:
+    params:
+        start_year = int(df_info.loc[2, 'Input']),
+        end_year = int(df_info.loc[3, 'Input'])
+    input:
+        fn_TGWW_country = os.path.abspath(df_info.loc[1,'Input']+f'/Total/shp/Countries_Total_GWW_AQUASTAT_{start_year}_{end_year}.shp'),
+        fn_GWW_Frac = os.path.abspath(df_info.loc[6,'Input'])
+    output:
+        fn_Ind_GWW_country = os.path.abspath(df_info.loc[1, 'Input']+f'/Industrial/shp/Countries_Ind_GWW_{start_year}_{end_year}.shp')
+    
+    message: 
+        "now generating {output} file from rule Countries_Ind_GWW"
+    
+    script:
+       os.path.abspath(df_info.loc[0,'Input'])+'/An_Countries_Ind_GWW.py' 
+  
+rule Fill_no_data_frac_Ind:
+    params:
+        start_year = int(df_info.loc[2, 'Input']),
+        end_year = int(df_info.loc[3, 'Input'])
+    input:
+        fn_Ind_GWW_country = os.path.abspath(df_info.loc[1, 'Input']+f'/Industrial/shp/Countries_Ind_GWW_{start_year}_{end_year}.shp')
+    output:
+        fn_Ind_GGW_country_Fillno_IndFrac = os.path.abspath(df_info.loc[1, 'Input']+f'/Industrial/shp/Countries_Ind_GWW_{start_year}_{end_year}_noData_IndFrac.shp')
+    message:
+        "now generating {output} file from rule Fill_no_data_frac_Ind"
+    script:
+        os.path.abspath(df_info.loc[0,'Input'])+'/An_Countries_Ind_GWW_Fillno_IndFrac.py'                   
+        
+rule Count_Urban_Mining_Grids:
+    input:
+        fn_Ind_GGW_country_Fillno_IndFrac = os.path.abspath(df_info.loc[1, 'Input']+f'/Industrial/shp/Countries_Ind_GWW_{start_year}_{end_year}_noData_IndFrac.shp'),
+        fn_Urban_Mining_GWDepth_100m = os.path.abspath(df_info.loc[1,'Input'])+'/Urban_Mining/Netcdf/GW_depth_less_100m_Urban_mining_grids.nc'
+    output:
+        fn_Countries_Urban_Mining_GWDepth_100m_Count = os.path.abspath(df_info.loc[1, 'Input']+f'/Industrial/shp/Countries_Ind_GWW_{start_year}_{end_year}_noData_IndFrac_Urb_Min_GWdepth_Count.shp')
+    message: 
+        "now generating {output} file from rule Count_Urban_Mining_Grids"
+    script:
+        os.path.abspath(df_info.loc[0,'Input'])+'/Mining_Urban_Count.py'           
+     
+rule Countries_Grid_Ind_GWW:
+    params:
+        start_year = int(df_info.loc[2, 'Input']),
+        end_year = int(df_info.loc[3, 'Input'])
+    input:
+        fn_Countries_Urban_Mining_GWDepth_100m_Count = os.path.abspath(df_info.loc[1, 'Input']+f'/Industrial/shp/Countries_Ind_GWW_{start_year}_{end_year}_noData_IndFrac_Urb_Min_GWdepth_Count.shp')
+    output:
+        fn_Countries_Grid_Ind_GWW = os.path.abspath(df_info.loc[1, 'Input']+f'/Industrial/shp/Countries_Ind_GWW_{start_year}_{end_year}_Per_Grid.shp')
+    message:
+        "now generating {output} file from rule Countries_Grid_Ind_GWW"
+    script:
+        os.path.abspath(df_info.loc[0,'Input'])+'/Countries_Grid_Ind_GWW.py' 
+
+rule Fill_no_data_Countries_Grid_Ind_GWW:
+    params:
+        start_year = int(df_info.loc[2, 'Input']),
+        end_year = int(df_info.loc[3, 'Input'])
+    input:
+        fn_Countries_Grid_Ind_GWW = os.path.abspath(df_info.loc[1, 'Input']+f'/Industrial/shp/Countries_Ind_GWW_{start_year}_{end_year}_Per_Grid.shp')
+    output:
+        fn_assigned_countries_Grid_Ind_GWW = os.path.abspath(df_info.loc[1, 'Input']+f'/Industrial/shp/Countries_Ind_GWW_{start_year}_{end_year}_Per_Grid_Assigned_noData.shp')
+    message:
+        "now generating {output} file from rule Fill_no_data_Countries_Grid_Ind_GWW"
+    script:
+        os.path.abspath(df_info.loc[0,'Input'])+'/An_Countries_Grid_Ind_GWW_Fillno.py' 
+
+rule Total_Grid_Ind_GWW:
+    params:
+        start_year = int(df_info.loc[2, 'Input']),
+        end_year = int(df_info.loc[3, 'Input'])
+    input:
+        fn_assigned_countries_Grid_Ind_GWW = os.path.abspath(df_info.loc[1, 'Input']+f'/Industrial/shp/Countries_Ind_GWW_{start_year}_{end_year}_Per_Grid_Assigned_noData.shp'),
+        fn_Urban_Mining_GWDepth_100m = os.path.abspath(df_info.loc[1,'Input'])+'/Urban_Mining/Netcdf/GW_depth_less_100m_Urban_mining_grids.nc'
+    output:
+        fn_An_Grid_Total_Ind_GWW = os.path.abspath(df_info.loc[1, 'Input']+f'/Industrial/Netcdf/Annual_Total_Ind_GWW_GWdepth_{start_year}_{end_year}.nc')
+    message:
+        "now generating {output} file from rule Total_Grid_Ind_GWW"
+    script:
+        os.path.abspath(df_info.loc[0,'Input'])+'/An_Grid_Total_Ind_GWW.py' 
+
+rule Countries_Irr_GWW:
+    params:
+        start_year = int(df_info.loc[2, 'Input']),
+        end_year = int(df_info.loc[3, 'Input'])
+    input:
+        fn_TGWW_country = os.path.abspath(df_info.loc[1,'Input']+f'/Total/shp/Countries_Total_GWW_AQUASTAT_{start_year}_{end_year}.shp'),
+        fn_GWW_Frac = os.path.abspath(df_info.loc[6,'Input'])
+    output:
+        fn_Irr_GWW_country = os.path.abspath(df_info.loc[1, 'Input']+f'/Irrigation/shp/Countries_Irr_GWW_{start_year}_{end_year}.shp')
+    
+    message: 
+        "now generating {output} file from rule Countries_Irr_GWW"
+    
+    script:
+       os.path.abspath(df_info.loc[0,'Input'])+'/An_Countries_Irr_GWW.py' 
+
+rule Merge_Irr_GWW_Eu_World:
+    params:
+        start_year = int(df_info.loc[2, 'Input']),
+        end_year = int(df_info.loc[3, 'Input'])
+    input:
+        fn_Irr_GWW_EU = os.path.abspath(df_info.loc[13,'Input']),
+        fn_Irr_GWW_country = os.path.abspath(df_info.loc[1, 'Input']+f'/Irrigation/shp/Countries_Irr_GWW_{start_year}_{end_year}.shp')
+    output:
+        fn_Irr_GWW_Eu_World = os.path.abspath(df_info.loc[1, 'Input']+f'/Irrigation/shp/Countries_Irr_GWW_{start_year}_{end_year}_Eu_World.shp')
+    message:
+        "now generating {output} file from rule Merge_Irr_GWW_Eu_World"
+    script:
+        os.path.abspath(df_info.loc[0,'Input'])+'/An_merg_Eu_Irr_GWW.py'
+
+rule Fill_no_data_frac_Irr:
+    params:
+        start_year = int(df_info.loc[2, 'Input']),
+        end_year = int(df_info.loc[3, 'Input'])
+    input:
+        fn_Irr_GWW_Eu_World = os.path.abspath(df_info.loc[1, 'Input']+f'/Irrigation/shp/Countries_Irr_GWW_{start_year}_{end_year}_Eu_World.shp')
+    output:
+        fn_Irr_GWW_country_Fillno_IrrFrac = os.path.abspath(df_info.loc[1, 'Input']+f'/Irrigation/shp/Countries_Irr_GWW_{start_year}_{end_year}_noData_IrrFrac.shp')
+    message:
+        "now generating {output} file from rule Fill_no_data_frac_Irr"
+    script:
+        os.path.abspath(df_info.loc[0,'Input'])+'/An_Countries_Irr_GWW_Fillno_IrrFrac.py'  
+
+rule Sum_Irr_Area:
+    input:
+        fn_Irr_GWW_country_Fillno_IrrFrac = os.path.abspath(df_info.loc[1, 'Input']+f'/Irrigation/shp/Countries_Irr_GWW_{start_year}_{end_year}_noData_IrrFrac.shp'),
+        fn_GW_Irr_Area = os.path.abspath(df_info.loc[14,'Input'])
+    output:
+        fn_Countries_Irr_Area_Sum = os.path.abspath(df_info.loc[1, 'Input']+f'/Irrigation/shp/Countries_Irr_GWW_{start_year}_{end_year}_noData_IrrFrac_IrrArea.shp')
+    message:
+        "now generating {output} file from rule Sum_Irr_Area"
+    script:
+        os.path.abspath(df_info.loc[0,'Input'])+'/Countries_GW_Irr_Area.py'  
+
+rule Countries_Grid_Irr_GWW:
+    params:
+        start_year = int(df_info.loc[2, 'Input']),
+        end_year = int(df_info.loc[3, 'Input'])
+    input:
+        fn_Countries_Irr_Area_Sum = os.path.abspath(df_info.loc[1, 'Input']+f'/Irrigation/shp/Countries_Irr_GWW_{start_year}_{end_year}_noData_IrrFrac_IrrArea.shp')
+    output:
+        fn_countries_Grid_Irr_GWW = os.path.abspath(df_info.loc[1, 'Input']+f'/Irrigation/shp/Countries_Irr_GWW_{start_year}_{end_year}_Irr_Grid.shp')
+    message:
+        "now generating {output} file from Countries_Grid_Irr_GWW"
+    script:
+        os.path.abspath(df_info.loc[0,'Input'])+'/Countries_Grid_Irr_GWW.py'      
+
+rule Fill_no_data_Countries_Grid_Irr_GWW:
+    params:
+        start_year = int(df_info.loc[2, 'Input']),
+        end_year = int(df_info.loc[3, 'Input'])
+    input:
+        fn_countries_Grid_Irr_GWW = os.path.abspath(df_info.loc[1, 'Input']+f'/Irrigation/shp/Countries_Irr_GWW_{start_year}_{end_year}_Irr_Grid.shp')
+    output:
+        fn_assigned_countries_Irr_Grid_Irr_GWW = os.path.abspath(df_info.loc[1, 'Input']+f'/Irrigation/shp/Countries_Irr_GWW_{start_year}_{end_year}_Irr_Grid_Fillno.shp')
+    message:
+        "now generating {output} file from Fill_no_data_Countries_Grid_Irr_GWW"
+    script:
+        os.path.abspath(df_info.loc[0,'Input'])+'/An_Countries_Grid_Irr_GWW_Fillno.py' 
+
+rule Total_Grid_Irr_GWW:
+    params:
+        start_year = int(df_info.loc[2, 'Input']),
+        end_year = int(df_info.loc[3, 'Input'])
+    input:
+        fn_assigned_countries_Irr_Grid_Irr_GWW = os.path.abspath(df_info.loc[1, 'Input']+f'/Irrigation/shp/Countries_Irr_GWW_{start_year}_{end_year}_Irr_Grid_Fillno.shp'),
+        fn_GW_Irr_Area = os.path.abspath(df_info.loc[14,'Input'])
+    output:
+        fn_An_Grid_Total_Irr_GWW = os.path.abspath(df_info.loc[1, 'Input']+f'/Irrigation/Netcdf/Annual_Total_Irr_GWW_{start_year}_{end_year}.nc')
+    message:
+        "now generating {output} file from Total_Grid_Irr_GWW"
+    script:
+        os.path.abspath(df_info.loc[0,'Input'])+'/An_Grid_Total_Irr_GWW.py' 
+
+rule Irr_Efficiency:
+    input:
+        fn_assigned_countries_Irr_Grid_Irr_GWW = os.path.abspath(df_info.loc[1, 'Input']+f'/Irrigation/shp/Countries_Irr_GWW_{start_year}_{end_year}_Irr_Grid_Fillno.shp'),
+        fn_Countries_F_Irr = os.path.abspath(df_info.loc[15,'Input'])
+    output:
+        fn_assigned_countries_Irr_Grid_Irr_GWW_F_Irr = os.path.abspath(df_info.loc[1, 'Input']+f'/Irrigation/shp/Countries_Irr_GWW_{start_year}_{end_year}_Irr_Grid_Fillno_F_Irr.shp')
+    message:
+        "now generating {output} file from Irr_Efficiency"
+    script:
+        os.path.abspath(df_info.loc[0,'Input'])+'/Countries_Irr_Efficiency.py' 
+
+rule CU_Grid_Irr_GWW:
+    params:
+        start_year = int(df_info.loc[2, 'Input']),
+        end_year = int(df_info.loc[3, 'Input'])
+    input:
+        fn_assigned_countries_Irr_Grid_Irr_GWW_F_Irr = os.path.abspath(df_info.loc[1, 'Input']+f'/Irrigation/shp/Countries_Irr_GWW_{start_year}_{end_year}_Irr_Grid_Fillno_F_Irr.shp'),
+        fn_GW_Irr_Area = os.path.abspath(df_info.loc[14,'Input'])
+    output:
+        fn_An_Grid_CU_Irr_GWW = os.path.abspath(df_info.loc[1, 'Input']+f'/Irrigation/Netcdf/Annual_CU_Irr_GWW_{start_year}_{end_year}.nc')
+    message:
+        "now generating {output} file from CU_Grid_Irr_GWW"
+    script:
+        os.path.abspath(df_info.loc[0,'Input'])+'/An_Grid_CU_Irr_GWW.py' 
+        
+rule Net_Grid_Irr_GWW:
+    params:
+        start_year = int(df_info.loc[2, 'Input']),
+        end_year = int(df_info.loc[3, 'Input'])
+    input:
+        fn_An_Grid_CU_Irr_GWW = os.path.abspath(df_info.loc[1, 'Input']+f'/Irrigation/Netcdf/Annual_CU_Irr_GWW_{start_year}_{end_year}.nc'),
+        fn_An_Grid_Total_Irr_GWW = os.path.abspath(df_info.loc[1, 'Input']+f'/Irrigation/Netcdf/Annual_Total_Irr_GWW_{start_year}_{end_year}.nc'),
+        fn_Frgw = os.path.abspath(df_info.loc[16,'Input'])
+    output:
+        fn_An_Grid_Net_Irr_GWW = os.path.abspath(df_info.loc[1, 'Input']+f'/Irrigation/Netcdf/Annual_Net_Irr_GWW_{start_year}_{end_year}.nc')
+    message:
+        "now generating {output} file from Net_Grid_Irr_GWW"
+    script:
+        os.path.abspath(df_info.loc[0,'Input'])+'/An_Grid_Net_Irr_GWW.py' 
+
+rule Total_Grid_GWW:
+    params:
+        start_year = int(df_info.loc[2, 'Input']),
+        end_year = int(df_info.loc[3, 'Input'])
+    input:
+        fn_An_Grid_Net_Irr_GWW = os.path.abspath(df_info.loc[1, 'Input']+f'/Irrigation/Netcdf/Annual_Net_Irr_GWW_{start_year}_{end_year}.nc'),
+        fn_An_Grid_Total_Ind_GWW = os.path.abspath(df_info.loc[1, 'Input']+f'/Industrial/Netcdf/Annual_Total_Ind_GWW_GWdepth_{start_year}_{end_year}.nc'),
+        fn_Grid_Total_Dom_GWW_GWdepth = os.path.abspath(df_info.loc[1, 'Input']+f'/Domestic/Netcdf/Annual_Total_D_GWW_GWdepth_{start_year}_{end_year}.nc')
+    output:
+        fn_An_Grid_Total_GWW = os.path.abspath(df_info.loc[1, 'Input']+f'/Total/Netcdf/Annual_Total_GWW_{start_year}_{end_year}.nc')
+    message:
+        "now generating {output} file from Total_Grid_GWW"
+    script:
+        os.path.abspath(df_info.loc[0,'Input'])+'/An_Grid_Total_GWW.py' 

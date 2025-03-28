@@ -1,0 +1,33 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job             count    min threads    max threads
+------------  -------  -------------  -------------
+GG_W                1              1              1
+Sum_Irr_Area        1              1              1
+total               2              1              1
+
+Select jobs to execute...
+
+[Wed May 15 16:23:41 2024]
+Job 1: now generating /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Publish_Test/Irrigation/shp/Countries_Irr_GWW_2001_2020_noData_IrrFrac_IrrArea.shp file from rule Sum_Irr_Area
+Reason: Missing output files: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Publish_Test/Irrigation/shp/Countries_Irr_GWW_2001_2020_noData_IrrFrac_IrrArea.shp
+
+[Wed May 15 16:23:48 2024]
+Finished job 1.
+1 of 2 steps (50%) done
+Select jobs to execute...
+
+[Wed May 15 16:23:48 2024]
+localrule GG_W:
+    input: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Publish_Test/Irrigation/shp/Countries_Irr_GWW_2001_2020_noData_IrrFrac_IrrArea.shp
+    jobid: 0
+    reason: Input files updated by another job: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Publish_Test/Irrigation/shp/Countries_Irr_GWW_2001_2020_noData_IrrFrac_IrrArea.shp
+    resources: tmpdir=/tmp
+
+[Wed May 15 16:23:48 2024]
+Finished job 0.
+2 of 2 steps (100%) done
+Complete log: .snakemake/log/2024-05-15T162339.919013.snakemake.log

@@ -1,0 +1,10 @@
+KeyErrorin line 217 of /labspaces/global-coastal-groundwater/users/sara.nazari/code/Water_Use/Publish/Snakefile:
+11
+  File "/labspaces/global-coastal-groundwater/users/sara.nazari/code/Water_Use/Publish/Snakefile", line 217, in <module>
+  File "/home/sara.nazari/labspaces/global-coastal-groundwater/software/FCGW/lib/python3.7/site-packages/pandas/core/indexing.py", line 925, in __getitem__
+  File "/home/sara.nazari/labspaces/global-coastal-groundwater/software/FCGW/lib/python3.7/site-packages/pandas/core/indexing.py", line 1100, in _getitem_tuple
+  File "/home/sara.nazari/labspaces/global-coastal-groundwater/software/FCGW/lib/python3.7/site-packages/pandas/core/indexing.py", line 838, in _getitem_lowerdim
+  File "/home/sara.nazari/labspaces/global-coastal-groundwater/software/FCGW/lib/python3.7/site-packages/pandas/core/indexing.py", line 1164, in _getitem_axis
+  File "/home/sara.nazari/labspaces/global-coastal-groundwater/software/FCGW/lib/python3.7/site-packages/pandas/core/indexing.py", line 1113, in _get_label
+  File "/home/sara.nazari/labspaces/global-coastal-groundwater/software/FCGW/lib/python3.7/site-packages/pandas/core/generic.py", line 3776, in xs
+  File "/home/sara.nazari/labspaces/global-coastal-groundwater/software/FCGW/lib/python3.7/site-packages/pandas/core/indexes/range.py", line 387, in get_loc

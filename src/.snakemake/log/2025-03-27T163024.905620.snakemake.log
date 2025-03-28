@@ -1,0 +1,6 @@
+Building DAG of jobs...
+MissingInputException in rule Net_Grid_Irr_GWW in line 445 of /labspaces/global-coastal-groundwater/users/sara.nazari/code/Water_Use/Publish/src/Snakefile:
+Missing input files for rule Net_Grid_Irr_GWW:
+    output: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Irrigation/Netcdf/Annual_Net_Irr_GWW_2003_2004.nc
+    affected files:
+        /home/sara.nazari/labspaces/global-coastal-groundwater/code/Water_Use/Publish/data/Frgw_01degree.nc

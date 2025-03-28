@@ -1,0 +1,33 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                    count    min threads    max threads
+-------------------  -------  -------------  -------------
+Countries_TGWW_data        1              1              1
+all                        1              1              1
+total                      2              1              1
+
+Select jobs to execute...
+
+[Fri May 10 13:04:57 2024]
+Job 1: now generating /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Publish_Test/Domestic/shp/Countries_Total_GW_Abstraction_AQUASTAT_2001_2020.shp file from rule Countries_TGWW_data
+Reason: Missing output files: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Publish_Test/Domestic/shp/Countries_Total_GW_Abstraction_AQUASTAT_2001_2020.shp
+
+[Fri May 10 13:05:02 2024]
+Finished job 1.
+1 of 2 steps (50%) done
+Select jobs to execute...
+
+[Fri May 10 13:05:02 2024]
+localrule all:
+    input: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Publish_Test/Domestic/shp/Countries_Total_GW_Abstraction_AQUASTAT_2001_2020.shp
+    jobid: 0
+    reason: Input files updated by another job: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Publish_Test/Domestic/shp/Countries_Total_GW_Abstraction_AQUASTAT_2001_2020.shp
+    resources: tmpdir=/tmp
+
+[Fri May 10 13:05:02 2024]
+Finished job 0.
+2 of 2 steps (100%) done
+Complete log: .snakemake/log/2024-05-10T130455.885943.snakemake.log

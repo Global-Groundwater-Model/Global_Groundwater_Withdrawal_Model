@@ -1,0 +1,41 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                                          count    min threads    max threads
+-----------------------------------------  -------  -------------  -------------
+An_Grid_Pop                                      1              1              1
+An_countries_population                          1              1              1
+Count_Urban_Mining_Grids                         1              1              1
+Countries_Dom_GWW                                1              1              1
+Countries_Grid_Ind_GWW                           1              1              1
+Fill_no_data_Countries_Grid_Ind_GWW              1              1              1
+Fill_no_data_Person_Dom_GWW                      1              1              1
+Fill_no_data_frac_dom                            1              1              1
+GG_W                                             1              1              1
+Grid_Person_Dom_GWW                              1              1              1
+Merge_Dom_GWW_Eu_World                           1              1              1
+Merge_Urban_Centre_Mining_Location               1              1              1
+Person_Dom_GWW                                   1              1              1
+Pop_GWDepth_100m                                 1              1              1
+Pop_and_GWDepth_Res_Modification                 1              1              1
+Total_Dom_GWW                                    1              1              1
+Total_Grid_GWW                                   1              1              1
+Total_Grid_Ind_GWW                               1              1              1
+Urban_Centre_Mining_Location_GWDepth_100m        1              1              1
+total                                           19              1              1
+
+Select jobs to execute...
+
+[Thu May 16 14:18:12 2024]
+Job 20: now generating /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Publish_Test/Urban_Mining/Netcdf/global_miningarea_v1_plus_urban_01degree.nc file from rule Merge_Urban_Centre_Mining_Location
+Reason: Missing output files: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Publish_Test/Urban_Mining/Netcdf/global_miningarea_v1_plus_urban_01degree.nc; Updated input files: /home/sara.nazari/labspaces/global-coastal-groundwater/data/inbox/GHSL/GHSL_Pop_smod_01_mean.tif
+
+Waiting at most 5 seconds for missing files.
+MissingOutputException in rule Merge_Urban_Centre_Mining_Location in line 222 of /labspaces/global-coastal-groundwater/users/sara.nazari/code/Water_Use/Publish/Snakefile:
+Job Missing files after 5 seconds. This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait:
+/home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Publish_Test/Urban_Mining/Netcdf/global_miningarea_v1_plus_urban_01degree.nc completed successfully, but some output files are missing. 20
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-05-16T141810.767438.snakemake.log

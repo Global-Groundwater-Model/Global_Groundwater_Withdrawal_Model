@@ -1,0 +1,24 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                                   count    min threads    max threads
+----------------------------------  -------  -------------  -------------
+GG_W                                      1              1              1
+Merge_Urban_Centre_Mining_Location        1              1              1
+total                                     2              1              1
+
+Select jobs to execute...
+
+[Thu May 16 14:20:51 2024]
+Job 1: now generating /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Publish_Test/Urban_Mining/Netcdf/global_miningarea_v1_plus_urban_01degree.nc file from rule Merge_Urban_Centre_Mining_Location
+Reason: Missing output files: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Publish_Test/Urban_Mining/Netcdf/global_miningarea_v1_plus_urban_01degree.nc
+
+Waiting at most 5 seconds for missing files.
+MissingOutputException in rule Merge_Urban_Centre_Mining_Location in line 223 of /labspaces/global-coastal-groundwater/users/sara.nazari/code/Water_Use/Publish/Snakefile:
+Job Missing files after 5 seconds. This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait:
+/home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Publish_Test/Urban_Mining/Netcdf/global_miningarea_v1_plus_urban_01degree.nc completed successfully, but some output files are missing. 1
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-05-16T142050.481285.snakemake.log

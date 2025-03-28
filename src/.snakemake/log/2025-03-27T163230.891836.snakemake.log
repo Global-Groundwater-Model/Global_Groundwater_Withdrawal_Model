@@ -1,0 +1,55 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                                    count    min threads    max threads
+-----------------------------------  -------  -------------  -------------
+CU_Grid_Irr_GWW                            1              1              1
+Count_Urban_Mining_Grids                   1              1              1
+Countries_Dom_GWW                          1              1              1
+Countries_Grid_Ind_GWW                     1              1              1
+Countries_Grid_Irr_GWW                     1              1              1
+Countries_Ind_GWW                          1              1              1
+Countries_Irr_GWW                          1              1              1
+Countries_TGWW_data                        1              1              1
+Fill_no_data_Countries_Grid_Ind_GWW        1              1              1
+Fill_no_data_Countries_Grid_Irr_GWW        1              1              1
+Fill_no_data_Person_Dom_GWW                1              1              1
+Fill_no_data_frac_Ind                      1              1              1
+Fill_no_data_frac_Irr                      1              1              1
+Fill_no_data_frac_dom                      1              1              1
+GG_W                                       1              1              1
+Grid_Person_Dom_GWW                        1              1              1
+Irr_Efficiency                             1              1              1
+Merge_Dom_GWW_Eu_World                     1              1              1
+Merge_Irr_GWW_Eu_World                     1              1              1
+Net_Grid_Irr_GWW                           1              1              1
+Person_Dom_GWW                             1              1              1
+Sum_Irr_Area                               1              1              1
+Total_Dom_GWW                              1              1              1
+Total_Grid_GWW                             1              1              1
+Total_Grid_Ind_GWW                         1              1              1
+Total_Grid_Irr_GWW                         1              1              1
+total                                     26              1              1
+
+Select jobs to execute...
+
+[Thu Mar 27 16:32:32 2025]
+Job 11: now generating /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Total/shp/Countries_Total_GWW_AQUASTAT_2003_2004.shp file from rule Countries_TGWW_data
+Reason: Missing output files: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Total/shp/Countries_Total_GWW_AQUASTAT_2003_2004.shp
+
+[Thu Mar 27 16:32:32 2025]
+Error in rule Countries_TGWW_data:
+    jobid: 11
+    output: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Total/shp/Countries_Total_GWW_AQUASTAT_2003_2004.shp
+
+RuleException:
+WorkflowErrorin line 75 of /labspaces/global-coastal-groundwater/users/sara.nazari/code/Water_Use/Publish/src/Snakefile:
+Failed to open source file /home/sara.nazari/labspaces/global-coastal-groundwater/code/Water_Use/Publish/An_Countries_TGWW.py
+FileNotFoundError: [Errno 2] No such file or directory: '/home/sara.nazari/labspaces/global-coastal-groundwater/code/Water_Use/Publish/An_Countries_TGWW.py'
+  File "/labspaces/global-coastal-groundwater/users/sara.nazari/code/Water_Use/Publish/src/Snakefile", line 75, in __rule_Countries_TGWW_data
+  File "/home/sara.nazari/labspaces/global-coastal-groundwater/software/FCGW/lib/python3.7/concurrent/futures/thread.py", line 57, in run
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-03-27T163230.891836.snakemake.log

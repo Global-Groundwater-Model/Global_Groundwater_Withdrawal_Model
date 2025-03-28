@@ -1,0 +1,33 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                 count    min threads    max threads
+----------------  -------  -------------  -------------
+GG_W                    1              1              1
+Net_Grid_Irr_GWW        1              1              1
+total                   2              1              1
+
+Select jobs to execute...
+
+[Thu May 16 12:39:13 2024]
+Job 1: now generating /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Publish_Test/Irrigation/Netcdf/Annual_Net_Irr_GWW_2001_2020.nc file from Net_Grid_Irr_GWW
+Reason: Missing output files: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Publish_Test/Irrigation/Netcdf/Annual_Net_Irr_GWW_2001_2020.nc
+
+[Thu May 16 12:39:22 2024]
+Finished job 1.
+1 of 2 steps (50%) done
+Select jobs to execute...
+
+[Thu May 16 12:39:22 2024]
+localrule GG_W:
+    input: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Publish_Test/Irrigation/Netcdf/Annual_Net_Irr_GWW_2001_2020.nc
+    jobid: 0
+    reason: Input files updated by another job: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Publish_Test/Irrigation/Netcdf/Annual_Net_Irr_GWW_2001_2020.nc
+    resources: tmpdir=/tmp
+
+[Thu May 16 12:39:22 2024]
+Finished job 0.
+2 of 2 steps (100%) done
+Complete log: .snakemake/log/2024-05-16T123912.094187.snakemake.log

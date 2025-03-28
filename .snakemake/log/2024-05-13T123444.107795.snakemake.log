@@ -1,0 +1,30 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                                          count    min threads    max threads
+-----------------------------------------  -------  -------------  -------------
+Urban_Centre_Mining_Location_GWDepth_100m        1              1              1
+all                                              1              1              1
+total                                            2              1              1
+
+Select jobs to execute...
+
+[Mon May 13 12:34:45 2024]
+Job 1: now generating /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Publish_Test/Urban_Mining/Netcdf/GW_depth_less_100m_Urban_mining_grids.nc file from rule Urban_Centre_Mining_Location_GWDepth_100m
+Reason: Missing output files: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Publish_Test/Urban_Mining/Netcdf/GW_depth_less_100m_Urban_mining_grids.nc
+
+[Mon May 13 12:34:47 2024]
+Error in rule Urban_Centre_Mining_Location_GWDepth_100m:
+    jobid: 1
+    output: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Publish_Test/Urban_Mining/Netcdf/GW_depth_less_100m_Urban_mining_grids.nc
+
+RuleException:
+CalledProcessErrorin line 234 of /labspaces/global-coastal-groundwater/users/sara.nazari/code/Water_Use/Publish/Snakefile:
+Command 'set -euo pipefail;  /home/sara.nazari/labspaces/global-coastal-groundwater/software/FCGW/bin/python3.7 /labspaces/global-coastal-groundwater/users/sara.nazari/code/Water_Use/Publish/.snakemake/scripts/tmpp_wu_2m7.Mining_Urban_GWDepth.py' returned non-zero exit status 1.
+  File "/labspaces/global-coastal-groundwater/users/sara.nazari/code/Water_Use/Publish/Snakefile", line 234, in __rule_Urban_Centre_Mining_Location_GWDepth_100m
+  File "/home/sara.nazari/labspaces/global-coastal-groundwater/software/FCGW/lib/python3.7/concurrent/futures/thread.py", line 57, in run
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-05-13T123444.107795.snakemake.log

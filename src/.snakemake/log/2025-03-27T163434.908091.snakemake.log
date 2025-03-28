@@ -1,0 +1,273 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                                    count    min threads    max threads
+-----------------------------------  -------  -------------  -------------
+CU_Grid_Irr_GWW                            1              1              1
+Count_Urban_Mining_Grids                   1              1              1
+Countries_Dom_GWW                          1              1              1
+Countries_Grid_Ind_GWW                     1              1              1
+Countries_Grid_Irr_GWW                     1              1              1
+Countries_Ind_GWW                          1              1              1
+Countries_Irr_GWW                          1              1              1
+Countries_TGWW_data                        1              1              1
+Fill_no_data_Countries_Grid_Ind_GWW        1              1              1
+Fill_no_data_Countries_Grid_Irr_GWW        1              1              1
+Fill_no_data_Person_Dom_GWW                1              1              1
+Fill_no_data_frac_Ind                      1              1              1
+Fill_no_data_frac_Irr                      1              1              1
+Fill_no_data_frac_dom                      1              1              1
+GG_W                                       1              1              1
+Grid_Person_Dom_GWW                        1              1              1
+Irr_Efficiency                             1              1              1
+Merge_Dom_GWW_Eu_World                     1              1              1
+Merge_Irr_GWW_Eu_World                     1              1              1
+Net_Grid_Irr_GWW                           1              1              1
+Person_Dom_GWW                             1              1              1
+Sum_Irr_Area                               1              1              1
+Total_Dom_GWW                              1              1              1
+Total_Grid_GWW                             1              1              1
+Total_Grid_Ind_GWW                         1              1              1
+Total_Grid_Irr_GWW                         1              1              1
+total                                     26              1              1
+
+Select jobs to execute...
+
+[Thu Mar 27 16:34:36 2025]
+Job 11: now generating /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Total/shp/Countries_Total_GWW_AQUASTAT_2003_2004.shp file from rule Countries_TGWW_data
+Reason: Missing output files: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Total/shp/Countries_Total_GWW_AQUASTAT_2003_2004.shp
+
+[Thu Mar 27 16:34:39 2025]
+Finished job 11.
+1 of 26 steps (4%) done
+Select jobs to execute...
+
+[Thu Mar 27 16:34:40 2025]
+Job 18: now generating /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Industrial/shp/Countries_Ind_GWW_2003_2004.shp file from rule Countries_Ind_GWW
+Reason: Missing output files: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Industrial/shp/Countries_Ind_GWW_2003_2004.shp; Input files updated by another job: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Total/shp/Countries_Total_GWW_AQUASTAT_2003_2004.shp
+
+[Thu Mar 27 16:34:43 2025]
+Finished job 18.
+2 of 26 steps (8%) done
+Select jobs to execute...
+
+[Thu Mar 27 16:34:43 2025]
+Job 10: now generating /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Irrigation/shp/Countries_Irr_GWW_2003_2004.shp file from rule Countries_Irr_GWW
+Reason: Missing output files: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Irrigation/shp/Countries_Irr_GWW_2003_2004.shp; Input files updated by another job: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Total/shp/Countries_Total_GWW_AQUASTAT_2003_2004.shp
+
+[Thu Mar 27 16:34:46 2025]
+Finished job 10.
+3 of 26 steps (12%) done
+Select jobs to execute...
+
+[Thu Mar 27 16:34:46 2025]
+Job 17: now generating /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Industrial/shp/Countries_Ind_GWW_2003_2004_noData_IndFrac.shp file from rule Fill_no_data_frac_Ind
+Reason: Missing output files: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Industrial/shp/Countries_Ind_GWW_2003_2004_noData_IndFrac.shp; Input files updated by another job: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Industrial/shp/Countries_Ind_GWW_2003_2004.shp
+
+[Thu Mar 27 16:34:48 2025]
+Finished job 17.
+4 of 26 steps (15%) done
+Select jobs to execute...
+
+[Thu Mar 27 16:34:48 2025]
+Job 9: now generating /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Irrigation/shp/Countries_Irr_GWW_2003_2004_Eu_World.shp file from rule Merge_Irr_GWW_Eu_World
+Reason: Missing output files: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Irrigation/shp/Countries_Irr_GWW_2003_2004_Eu_World.shp; Input files updated by another job: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Irrigation/shp/Countries_Irr_GWW_2003_2004.shp
+
+[Thu Mar 27 16:34:51 2025]
+Finished job 9.
+5 of 26 steps (19%) done
+Select jobs to execute...
+
+[Thu Mar 27 16:34:51 2025]
+Job 8: now generating /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Irrigation/shp/Countries_Irr_GWW_2003_2004_noData_IrrFrac.shp file from rule Fill_no_data_frac_Irr
+Reason: Missing output files: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Irrigation/shp/Countries_Irr_GWW_2003_2004_noData_IrrFrac.shp; Input files updated by another job: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Irrigation/shp/Countries_Irr_GWW_2003_2004_Eu_World.shp
+
+[Thu Mar 27 16:34:53 2025]
+Finished job 8.
+6 of 26 steps (23%) done
+Select jobs to execute...
+
+[Thu Mar 27 16:34:53 2025]
+Job 7: now generating /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Irrigation/shp/Countries_Irr_GWW_2003_2004_noData_IrrFrac_IrrArea.shp file from rule Sum_Irr_Area
+Reason: Missing output files: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Irrigation/shp/Countries_Irr_GWW_2003_2004_noData_IrrFrac_IrrArea.shp; Input files updated by another job: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Irrigation/shp/Countries_Irr_GWW_2003_2004_noData_IrrFrac.shp
+
+[Thu Mar 27 16:35:04 2025]
+Finished job 7.
+7 of 26 steps (27%) done
+Select jobs to execute...
+
+[Thu Mar 27 16:35:04 2025]
+Job 6: now generating /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Irrigation/shp/Countries_Irr_GWW_2003_2004_Irr_Grid.shp file from Countries_Grid_Irr_GWW
+Reason: Missing output files: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Irrigation/shp/Countries_Irr_GWW_2003_2004_Irr_Grid.shp; Input files updated by another job: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Irrigation/shp/Countries_Irr_GWW_2003_2004_noData_IrrFrac_IrrArea.shp
+
+[Thu Mar 27 16:35:06 2025]
+Finished job 6.
+8 of 26 steps (31%) done
+Select jobs to execute...
+
+[Thu Mar 27 16:35:06 2025]
+Job 26: now generating /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Domestic/shp/Countries_Domstic_GWW_2003_2004.shp file from rule Countries_Dom_GWW
+Reason: Missing output files: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Domestic/shp/Countries_Domstic_GWW_2003_2004.shp; Input files updated by another job: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Total/shp/Countries_Total_GWW_AQUASTAT_2003_2004.shp
+
+[Thu Mar 27 16:35:09 2025]
+Finished job 26.
+9 of 26 steps (35%) done
+Select jobs to execute...
+
+[Thu Mar 27 16:35:09 2025]
+Job 25: now generating /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Domestic/shp/Countries_Domstic_GWW_2003_2004_Eu_World.shp file from rule Merge_Dom_GWW_Eu_World
+Reason: Missing output files: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Domestic/shp/Countries_Domstic_GWW_2003_2004_Eu_World.shp; Input files updated by another job: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Domestic/shp/Countries_Domstic_GWW_2003_2004.shp
+
+[Thu Mar 27 16:35:11 2025]
+Finished job 25.
+10 of 26 steps (38%) done
+Select jobs to execute...
+
+[Thu Mar 27 16:35:11 2025]
+Job 5: now generating /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Irrigation/shp/Countries_Irr_GWW_2003_2004_Irr_Grid_Fillno.shp file from Fill_no_data_Countries_Grid_Irr_GWW
+Reason: Missing output files: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Irrigation/shp/Countries_Irr_GWW_2003_2004_Irr_Grid_Fillno.shp; Input files updated by another job: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Irrigation/shp/Countries_Irr_GWW_2003_2004_Irr_Grid.shp
+
+[Thu Mar 27 16:35:14 2025]
+Finished job 5.
+11 of 26 steps (42%) done
+Select jobs to execute...
+
+[Thu Mar 27 16:35:14 2025]
+Job 4: now generating /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Irrigation/shp/Countries_Irr_GWW_2003_2004_Irr_Grid_Fillno_F_Irr.shp file from Irr_Efficiency
+Reason: Missing output files: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Irrigation/shp/Countries_Irr_GWW_2003_2004_Irr_Grid_Fillno_F_Irr.shp; Input files updated by another job: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Irrigation/shp/Countries_Irr_GWW_2003_2004_Irr_Grid_Fillno.shp
+
+[Thu Mar 27 16:35:16 2025]
+Finished job 4.
+12 of 26 steps (46%) done
+Select jobs to execute...
+
+[Thu Mar 27 16:35:16 2025]
+Job 3: now generating /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Irrigation/Netcdf/Annual_CU_Irr_GWW_2003_2004.nc file from CU_Grid_Irr_GWW
+Reason: Missing output files: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Irrigation/Netcdf/Annual_CU_Irr_GWW_2003_2004.nc; Input files updated by another job: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Irrigation/shp/Countries_Irr_GWW_2003_2004_Irr_Grid_Fillno_F_Irr.shp
+
+[Thu Mar 27 16:35:32 2025]
+Finished job 3.
+13 of 26 steps (50%) done
+Select jobs to execute...
+
+[Thu Mar 27 16:35:32 2025]
+Job 16: now generating /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Industrial/shp/Countries_Ind_GWW_2003_2004_noData_IndFrac_Urb_Min_GWdepth_Count.shp file from rule Count_Urban_Mining_Grids
+Reason: Missing output files: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Industrial/shp/Countries_Ind_GWW_2003_2004_noData_IndFrac_Urb_Min_GWdepth_Count.shp; Input files updated by another job: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Industrial/shp/Countries_Ind_GWW_2003_2004_noData_IndFrac.shp
+
+[Thu Mar 27 16:35:41 2025]
+Finished job 16.
+14 of 26 steps (54%) done
+Select jobs to execute...
+
+[Thu Mar 27 16:35:41 2025]
+Job 24: now generating /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Domestic/shp/Countries_Domstic_GWW_2003_2004_noData_DomFrac.shp file from rule Fill_no_data_frac_dom
+Reason: Missing output files: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Domestic/shp/Countries_Domstic_GWW_2003_2004_noData_DomFrac.shp; Input files updated by another job: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Domestic/shp/Countries_Domstic_GWW_2003_2004_Eu_World.shp
+
+[Thu Mar 27 16:35:43 2025]
+Finished job 24.
+15 of 26 steps (58%) done
+Select jobs to execute...
+
+[Thu Mar 27 16:35:43 2025]
+Job 23: now generating /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Domestic/shp/Countries_Domstic_GWW_2003_2004_PerPerson.shp file from rule Person_Dom_GWW
+Reason: Missing output files: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Domestic/shp/Countries_Domstic_GWW_2003_2004_PerPerson.shp; Input files updated by another job: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Domestic/shp/Countries_Domstic_GWW_2003_2004_noData_DomFrac.shp
+
+[Thu Mar 27 16:35:46 2025]
+Finished job 23.
+16 of 26 steps (62%) done
+Select jobs to execute...
+
+[Thu Mar 27 16:35:46 2025]
+Job 22: now generating /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Domestic/shp/Countries_Domstic_GWW_2003_2004_PerPerson_Assigned_noData.shp file from rule Fill_no_data_Person_Dom_GWW
+Reason: Missing output files: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Domestic/shp/Countries_Domstic_GWW_2003_2004_PerPerson_Assigned_noData.shp; Input files updated by another job: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Domestic/shp/Countries_Domstic_GWW_2003_2004_PerPerson.shp
+
+[Thu Mar 27 16:35:48 2025]
+Finished job 22.
+17 of 26 steps (65%) done
+Select jobs to execute...
+
+[Thu Mar 27 16:35:48 2025]
+Job 21: now generating /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Domestic/Netcdf/Annual_D_GWW_Per_Person_GWdepth_2003_2004.nc file from rule Grid_Person_Dom_GWW
+Reason: Missing output files: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Domestic/Netcdf/Annual_D_GWW_Per_Person_GWdepth_2003_2004.nc; Input files updated by another job: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Domestic/shp/Countries_Domstic_GWW_2003_2004_PerPerson_Assigned_noData.shp
+
+[Thu Mar 27 16:35:57 2025]
+Finished job 21.
+18 of 26 steps (69%) done
+Select jobs to execute...
+
+[Thu Mar 27 16:35:57 2025]
+Job 20: now generating /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Domestic/Netcdf/Annual_Total_D_GWW_GWdepth_2003_2004.nc file from rule Total_Dom_GWW
+Reason: Missing output files: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Domestic/Netcdf/Annual_Total_D_GWW_GWdepth_2003_2004.nc; Input files updated by another job: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Domestic/Netcdf/Annual_D_GWW_Per_Person_GWdepth_2003_2004.nc
+
+[Thu Mar 27 16:36:08 2025]
+Finished job 20.
+19 of 26 steps (73%) done
+Select jobs to execute...
+
+[Thu Mar 27 16:36:08 2025]
+Job 15: now generating /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Industrial/shp/Countries_Ind_GWW_2003_2004_Per_Grid.shp file from rule Countries_Grid_Ind_GWW
+Reason: Missing output files: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Industrial/shp/Countries_Ind_GWW_2003_2004_Per_Grid.shp; Input files updated by another job: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Industrial/shp/Countries_Ind_GWW_2003_2004_noData_IndFrac_Urb_Min_GWdepth_Count.shp
+
+[Thu Mar 27 16:36:10 2025]
+Finished job 15.
+20 of 26 steps (77%) done
+Select jobs to execute...
+
+[Thu Mar 27 16:36:10 2025]
+Job 12: now generating /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Irrigation/Netcdf/Annual_Total_Irr_GWW_2003_2004.nc file from Total_Grid_Irr_GWW
+Reason: Missing output files: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Irrigation/Netcdf/Annual_Total_Irr_GWW_2003_2004.nc; Input files updated by another job: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Irrigation/shp/Countries_Irr_GWW_2003_2004_Irr_Grid_Fillno.shp
+
+[Thu Mar 27 16:36:25 2025]
+Finished job 12.
+21 of 26 steps (81%) done
+Select jobs to execute...
+
+[Thu Mar 27 16:36:25 2025]
+Job 2: now generating /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Irrigation/Netcdf/Annual_Net_Irr_GWW_2003_2004.nc file from Net_Grid_Irr_GWW
+Reason: Missing output files: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Irrigation/Netcdf/Annual_Net_Irr_GWW_2003_2004.nc; Input files updated by another job: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Irrigation/Netcdf/Annual_CU_Irr_GWW_2003_2004.nc, /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Irrigation/Netcdf/Annual_Total_Irr_GWW_2003_2004.nc
+
+[Thu Mar 27 16:36:44 2025]
+Finished job 2.
+22 of 26 steps (85%) done
+Select jobs to execute...
+
+[Thu Mar 27 16:36:44 2025]
+Job 14: now generating /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Industrial/shp/Countries_Ind_GWW_2003_2004_Per_Grid_Assigned_noData.shp file from rule Fill_no_data_Countries_Grid_Ind_GWW
+Reason: Missing output files: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Industrial/shp/Countries_Ind_GWW_2003_2004_Per_Grid_Assigned_noData.shp; Input files updated by another job: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Industrial/shp/Countries_Ind_GWW_2003_2004_Per_Grid.shp
+
+[Thu Mar 27 16:36:46 2025]
+Finished job 14.
+23 of 26 steps (88%) done
+Select jobs to execute...
+
+[Thu Mar 27 16:36:46 2025]
+Job 13: now generating /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Industrial/Netcdf/Annual_Total_Ind_GWW_GWdepth_2003_2004.nc file from rule Total_Grid_Ind_GWW
+Reason: Missing output files: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Industrial/Netcdf/Annual_Total_Ind_GWW_GWdepth_2003_2004.nc; Input files updated by another job: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Industrial/shp/Countries_Ind_GWW_2003_2004_Per_Grid_Assigned_noData.shp
+
+[Thu Mar 27 16:37:02 2025]
+Finished job 13.
+24 of 26 steps (92%) done
+Select jobs to execute...
+
+[Thu Mar 27 16:37:02 2025]
+Job 1: now generating /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Total/Netcdf/Annual_Total_GWW_2003_2004.nc file from Total_Grid_GWW
+Reason: Missing output files: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Total/Netcdf/Annual_Total_GWW_2003_2004.nc; Input files updated by another job: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Industrial/Netcdf/Annual_Total_Ind_GWW_GWdepth_2003_2004.nc, /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Domestic/Netcdf/Annual_Total_D_GWW_GWdepth_2003_2004.nc, /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Irrigation/Netcdf/Annual_Net_Irr_GWW_2003_2004.nc
+
+[Thu Mar 27 16:37:33 2025]
+Finished job 1.
+25 of 26 steps (96%) done
+Select jobs to execute...
+
+[Thu Mar 27 16:37:33 2025]
+localrule GG_W:
+    input: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Total/Netcdf/Annual_Total_GWW_2003_2004.nc
+    jobid: 0
+    reason: Input files updated by another job: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Paper_Publish_Data/test_outputs/Total/Netcdf/Annual_Total_GWW_2003_2004.nc
+    resources: tmpdir=/tmp
+
+[Thu Mar 27 16:37:33 2025]
+Finished job 0.
+26 of 26 steps (100%) done
+Complete log: .snakemake/log/2025-03-27T163434.908091.snakemake.log

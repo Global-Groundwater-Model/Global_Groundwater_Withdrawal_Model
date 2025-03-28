@@ -1,0 +1,31 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                    count    min threads    max threads
+-------------------  -------  -------------  -------------
+Countries_TGWW_data        1              1              1
+all                        1              1              1
+total                      2              1              1
+
+Select jobs to execute...
+
+[Fri May 10 12:50:42 2024]
+Job 1: now generating /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Unc_Test/Domestic/shp/Countries_Total_GW_Abstraction_AQUASTAT_2001_20022.shp file from rule Countries_TGWW_data
+Reason: Missing output files: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Unc_Test/Domestic/shp/Countries_Total_GW_Abstraction_AQUASTAT_2001_20022.shp
+
+[Fri May 10 12:50:42 2024]
+Error in rule Countries_TGWW_data:
+    jobid: 1
+    output: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Unc_Test/Domestic/shp/Countries_Total_GW_Abstraction_AQUASTAT_2001_20022.shp
+
+RuleException:
+WorkflowErrorin line 52 of /labspaces/global-coastal-groundwater/users/sara.nazari/code/Water_Use/Publish/Snakefile:
+Failed to open source file /home/sara.nazari/labspaces/global-coastal-groundwater/code/Water_Use/An_Countries_TGWW.py
+FileNotFoundError: [Errno 2] No such file or directory: '/home/sara.nazari/labspaces/global-coastal-groundwater/code/Water_Use/An_Countries_TGWW.py'
+  File "/labspaces/global-coastal-groundwater/users/sara.nazari/code/Water_Use/Publish/Snakefile", line 52, in __rule_Countries_TGWW_data
+  File "/home/sara.nazari/labspaces/global-coastal-groundwater/software/FCGW/lib/python3.7/concurrent/futures/thread.py", line 57, in run
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-05-10T125041.076479.snakemake.log

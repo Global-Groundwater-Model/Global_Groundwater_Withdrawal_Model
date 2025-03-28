@@ -1,0 +1,51 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                            count    min threads    max threads
+---------------------------  -------  -------------  -------------
+Fill_no_data_Person_Dom_GWW        1              1              1
+Grid_Person_Dom_GWW                1              1              1
+Total_Dom_GWW                      1              1              1
+all                                1              1              1
+total                              4              1              1
+
+Select jobs to execute...
+
+[Fri May 10 21:38:27 2024]
+Job 3: now generating /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Publish_Test/Domestic/shp/Countries_Domstic_GW_Abstraction_2001_2020_PerPerson_Assigned_noData.shp file from rule Fill_no_data_Person_Dom_GWW
+Reason: Missing output files: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Publish_Test/Domestic/shp/Countries_Domstic_GW_Abstraction_2001_2020_PerPerson_Assigned_noData.shp
+
+[Fri May 10 21:38:30 2024]
+Finished job 3.
+1 of 4 steps (25%) done
+Select jobs to execute...
+
+[Fri May 10 21:38:30 2024]
+Job 2: now generating /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Publish_Test/Domestic/Netcdf/Annual_D_GWW_Per_Person_GWdepth_2001_2020.nc file from rule Grid_Person_Dom_GWW
+Reason: Missing output files: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Publish_Test/Domestic/Netcdf/Annual_D_GWW_Per_Person_GWdepth_2001_2020.nc; Input files updated by another job: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Publish_Test/Domestic/shp/Countries_Domstic_GW_Abstraction_2001_2020_PerPerson_Assigned_noData.shp
+
+[Fri May 10 21:38:46 2024]
+Finished job 2.
+2 of 4 steps (50%) done
+Select jobs to execute...
+
+[Fri May 10 21:38:46 2024]
+Job 1: now generating /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Publish_Test/Domestic/Netcdf/Annual_Total_D_GWW_GWdepth_2001_2020.nc file from rule Total_Dom_GWW
+Reason: Missing output files: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Publish_Test/Domestic/Netcdf/Annual_Total_D_GWW_GWdepth_2001_2020.nc; Input files updated by another job: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Publish_Test/Domestic/Netcdf/Annual_D_GWW_Per_Person_GWdepth_2001_2020.nc
+
+[Fri May 10 21:38:46 2024]
+Error in rule Total_Dom_GWW:
+    jobid: 1
+    output: /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Publish_Test/Domestic/Netcdf/Annual_Total_D_GWW_GWdepth_2001_2020.nc
+
+RuleException:
+WorkflowErrorin line 200 of /labspaces/global-coastal-groundwater/users/sara.nazari/code/Water_Use/Publish/Snakefile:
+Failed to open source file /home/sara.nazari/labspaces/global-coastal-groundwater/data/inbox/Water_Use_AQUASTAT/Total_Groundwater_Use/AQUASTAT_Total_GW_Abstraction_2001_2020.csv/An_Grid_Total_Dom_GWW.py
+NotADirectoryError: [Errno 20] Not a directory: '/home/sara.nazari/labspaces/global-coastal-groundwater/data/inbox/Water_Use_AQUASTAT/Total_Groundwater_Use/AQUASTAT_Total_GW_Abstraction_2001_2020.csv/An_Grid_Total_Dom_GWW.py'
+  File "/labspaces/global-coastal-groundwater/users/sara.nazari/code/Water_Use/Publish/Snakefile", line 200, in __rule_Total_Dom_GWW
+  File "/home/sara.nazari/labspaces/global-coastal-groundwater/software/FCGW/lib/python3.7/concurrent/futures/thread.py", line 57, in run
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-05-10T213826.105010.snakemake.log

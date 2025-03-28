@@ -1,0 +1,5 @@
+Building DAG of jobs...
+MissingInputException in rule all in line 34 of /labspaces/global-coastal-groundwater/users/sara.nazari/code/Water_Use/Publish/Snakefile:
+Missing input files for rule all:
+    affected files:
+        /home/sara.nazari/labspaces/global-coastal-groundwater/data/work/Water_Use/Unc_Test/Domestic/shp/Countries_Total_GW_Abstraction_AQUASTAT_2001_20022.shp
