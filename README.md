@@ -2,6 +2,7 @@
 # Project Title
 
 Global Groundwater Withdrawal Model
+
 [![DOI](https://zenodo.org/badge/797320852.svg)](https://zenodo.org/doi/10.5281/zenodo.15529523)
 
 # Project Description
