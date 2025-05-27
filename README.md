@@ -11,7 +11,7 @@ The default spatial and temporal setup of the model is as follows: spatial resol
 
 ![Figure 1](figures/Figure1.png)
 
-Fig. 1. The newly developed Global Groundwater Withdrawal (GGW) model is a data-driven framework developed to estimate annual groundwater withdrawal (GWW) across three main sectors: domestic, industrial, and agricultural. Implemented in Python, the model operates at a spatial resolution of 0.1° and is used here to estimate annual withdrawal from 2001 to 2020.
+Fig. 1. Schematic representation of the data-driven Global Groundwater Withdrawal (GGW) Model. This diagram illustrates the methodology used to estimate annual groundwater withdrawal for domestic (Dom), industrial (Ind), and agricultural (Agr) sectors at the grid level. Country-level data (Annual country groundwater withdrawals (FAO., 2023), and per-sector country fraction of groundwater withdrawal (IGRAC, 2024)) are used and downscaled to 0.1° resolution using sector-specific spatial proxies (e.g., population, irrigated area). The figure also shows country classification and gap-filling techniques. Inputs are presented in italic font, and elements considered in the uncertainty assessment are marked in blue.
 
 
 ## Prerequisite
